@@ -1,4 +1,13 @@
 @import 'variables';
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+
+
+
+$roboto-slab: 'Roboto Slab', serif;   
+$open-sans: 'Open Sans', sans-serif;
+
+
+$header1: $open-sans;
 
 
 
@@ -24,36 +33,49 @@ body {
 a {
     text-decoration: none;
     color: $green;
-}:focus,:hover{
-    color: $blue;
+    transition: $transition;
+    &:focus, &:hover {
+        color: $blue;
+    }
+}
+
+
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    background: transparent;
 }
 
 
 
+
 .button {
-    a {
-        padding: 16px;
-        color: $green;
-        background-color: $navy;
-        border: 1px solid $green;
-        border-radius: 5px;
-        min-width: 80px;
-        text-align: center;
-        font-family: monospace;
-        font-size: 14pt;
-    }
-    :hover {
+    display: block;
+    padding: 16px;
+    color: $green;
+    background-color: $navy;
+    border: 2px solid $green;
+    border-radius: 5px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 14pt;
+
+    &:hover, &:focus {
         background-color: $navy-shadow;
         color: $blue;
         border-color: $blue;
+        box-shadow: 0 0 10px $blue;
     }
+
+
 }
 
 
 
 nav {
     padding: 30px 20px;
-    margin-right: 30px;
     display: flex;
     
     -webkit-box-pack: justify;
@@ -62,14 +84,28 @@ nav {
 
     .logo {
         padding: 0 10px;
-        img {
-            width: 50px;
+
+        a  {
+            border: 2px solid;
+            border-radius: 3px;
+            display: block;
+
+            img {
+                width: 50px;
+            }
+        }:focus,:hover {
+            box-shadow: 0 0 10px $blue;
         }
     }
+
+    .mobile-navbar {
+        display: none;
+    }
+
     .navbar {
         display: flex;
         
-        ol {
+        ul {
             display: flex;
             margin-right: 15px;
             padding-top: 3px;
@@ -91,12 +127,16 @@ nav {
 }
 
 
+
+
+
 .terminaltext {
     color: $green;
-    font-family: monospace;
+    font-family: 'Courier New', monospace;
     font-size: 16pt;
     margin: 0;
 }
+
 
 
 h1, h2, h3 {
@@ -105,11 +145,12 @@ h1, h2, h3 {
 
 h1 {
     color: $white;
-    font-size: 32pt;
+    font-size: clamp(40px, 6vw, 80px);
+    font-family: $header1;
 }
 h2 {
     color: $slate;
-    font-size: 24pt;
+    font-size: clamp(30px, 4vw, 60px);
 }
 h3 {
     color: $light-slate;
@@ -120,29 +161,35 @@ p {
     line-height: 1.6;
 }
 
+
+
 .side {
     position: fixed;
     display: flex;
     bottom: 0;
     flex-direction: column;
-}
-.side:after {
-    content: "";
-    display: block;
-    width: 1px;
-    height: 90px;
-    margin: 0px auto;
-    background-color: $light-slate;
+    &:after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 90px;
+        margin: 0px auto;
+        background-color: $light-slate;
+    }
 }
 
 #leftside {
     left: 40px;
-
+    
     a {
         margin-bottom: 25px;
-    }:focus,:hover {
-        transform: translateY(-3px);
-        transition: $transition;
+        border: 2px solid;
+        border-radius: 4px;
+    
+        &:focus,&:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 10px $blue;
+        }
     }
 
 
@@ -155,11 +202,13 @@ p {
         -webkit-writing-mode: vertical-rl;
         writing-mode: vertical-rl;
         margin: 25px 0;
-    }
-
-    a:focus, a:hover {
-        transform: translateY(-3px);
-        transition: $transition;
+        font-size: 12pt;
+        
+    
+        &:focus, &:hover {
+            transform: translateY(-3px);
+            color: $blue;
+        }
         
     }
 
@@ -168,6 +217,7 @@ p {
 
 
 #content {
+    margin: 0 50px;
     padding: 0 100px;
 
     section {
@@ -179,19 +229,24 @@ p {
     }
 
     #intro {
-        margin: 100px 0 200px 0;
+        margin: 50px 0 200px 0;
 
         h1 {
             margin-bottom: 25px;
+            transition-delay: 100ms;
         }
+        #name {
+            transition-delay: 200ms;
+        }
+
 
         h2 {
             margin-bottom: 15px;
-            font-size: 32pt;
         }
 
         .button {
             margin: 100px 0;
+            width: 220px;
         }
     }
     #contact {
@@ -199,13 +254,157 @@ p {
         margin-bottom: 150px;
 
         .button {
-            margin: 60px 0;
+            margin: 60px auto;
+            width: 200px;
         }
     }
 }
 
 
 footer div {
+    margin-bottom: 25px;
     text-align: center;
     padding: 0 100px;
+
+    p {
+        color: $blue !important;
+        font-size: 12pt !important;
+    }
+}
+
+
+
+
+
+
+/*
+
+
+320px — 480px: Mobile devices
+481px — 768px: iPads, Tablets
+769px — 1024px: Small screens, laptops
+1025px — 1200px: Desktops, large screens
+1201px and more —  Extra large screens, TV
+
+*/
+
+
+
+
+.mobile-navbar {
+   
+
+    .mobile-button {
+        display: block; 
+        background: $green;
+        right: 0;
+        width: 50px;
+        height: 50px;
+        margin: 0 10px;
+        z-index: 2;
+        position: fixed;
+        
+        &:before {
+            content: "";
+            display: block;
+            width: 5px;
+            height: 1px;
+            margin: 0px auto;
+            background-color: $light-slate;  
+        }
+        &:after{
+            content: "";
+            display: block;
+            width: 5px;
+            height: 1px;
+            margin: 0px auto;
+            background-color: $light-slate;
+        }
+    }
+    
+    .mobile-menu {
+        background-color: $light-navy;
+        width: 300px; 
+        display: none;
+        z-index: 1;
+        position: fixed;
+        padding-top: 100px;
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            
+            .navbutton {
+
+                list-style: none;
+                a {
+                    display: block;
+                    margin: auto;
+                    width: 200px;
+                    padding: 20px 0;
+                }
+            }
+        }
+
+        a {
+            width: 150px;
+            margin: 20px auto;
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px)  {
+
+    #leftside, #rightside {
+        display: none;
+    }
+
+    nav {
+
+        .navbar {
+            display: none;
+        }
+
+        
+
+
+        .mobile-navbar {
+            display: block;
+            
+            &:focus-within {
+
+                .mobile-button {
+                    
+                    &:before {
+                        content: "";
+                        display: block;
+                        width: 5px;
+                        height: 1px;
+                        margin: 0px auto;
+                        background-color: $blue;  
+                    }
+                    &:after{
+                        content: "";
+                        display: block;
+                        width: 5px;
+                        height: 1px;
+                        margin: 0px auto;
+                        background-color: $blue;
+                    }
+                }
+
+                .mobile-menu {
+                    display: block;
+                    position: fixed;
+                    right: 0;
+                    top: 0;
+                }
+
+            
+
+            }
+        }
+    }
+
 }

@@ -4,39 +4,50 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Robert Sutherland</title>
+        <link rel="icon" href="assets/favicon.png" type="image/png">
+        <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
         <link rel="stylesheet" href="css/main.css">
+        <script>0</script>
     </head>
     <body>
         <nav>
-            <div class="logo"><a href="/"><img src="assets/logo_rs.png"/></a></div>
-            <div class="navbar">
-                <ol>
-                    <li class="navbutton"><a href="#about">About</a></li>
-                    <li class="navbutton"><a href="#career">Experience</a></li>
-                    <li class="navbutton"><a href="#projects">Work</a></li>
-                    <li class="navbutton"><a href="#contact">Contact</a></li>
-                </ol>
-                <div class="button" >
-                    <a href="RobertSutherland_developer.pdf" target="_blank" style="transition-delay: 50ms;">Resume</a>
+            <div class="logo"><a href="/"><img src="assets/logo3.png"/></a></div>
+            <div class="mobile-navbar">
+                <button class="mobile-button" role="button" aria-controls="mobile-menu"></button>
+                <div id="mobile-menu" class="mobile-menu" role="menubar" hidden>
+                    <ul>
+                        <li class="navbutton"><a href="#about" role="menuitem">About</a></li>
+                        <li class="navbutton"><a href="#career" role="menuitem">Experience</a></li>
+                        <li class="navbutton"><a href="#projects" role="menuitem">Projects</a></li>
+                        <li class="navbutton"><a href="#contact" role="menuitem">Contact</a></li>
+                    </ul>
+                    <a class="button" href="RobertSutherland_Developer.pdf" target="_blank" style="transition-delay: 50ms;" role="menuitem">Resume</a>
                 </div>
+            </div>
+            <div class="navbar" role="menubar">
+                <ul>
+                    <li class="navbutton"><a href="#about" role="menuitem">About</a></li>
+                    <li class="navbutton"><a href="#career" role="menuitem">Experience</a></li>
+                    <li class="navbutton"><a href="#projects" role="menuitem">Projects</a></li>
+                    <li class="navbutton"><a href="#contact" role="menuitem">Contact</a></li>
+                </ul>
+                <a class="button" href="RobertSutherland_Developer.pdf" target="_blank" style="transition-delay: 50ms;" role="menuitem">Resume</a>
             </div>
         </nav>
         <main>
             <div id="leftside" class="side" orientation="left">
-                <a href="https://www.github.com/sutherb" target="_blank" style="transition-delay: 50ms;">G</a>
-                <a href="https://www.linkedin.com/in/sutherlandrobert/" target="_blank" style="transition-delay: 50ms;">L</a>
+                <a href="https://www.github.com/sutherb" target="_blank" style="transition-delay: 50ms;"><img src="assets/github3.png" /></a>
+                <a href="https://www.linkedin.com/in/sutherlandrobert/" target="_blank" style="transition-delay: 50ms;"><img src="assets/linkedin2.png" /></a>
             </div>
-            <div id="rightside" class="side" orientation="right"><a href="mailto:robertsutherlanddev@gmail.com">robertsutherlanddev@gmail.com</a></div>
+            <div id="rightside" class="side" orientation="right"><a class="terminaltext emailtext" href="mailto:robertsutherlanddev@gmail.com">robertsutherlanddev@gmail.com</a></div>
             <div id="content">
                 <section id="intro">
-                    <p class="terminaltext">Hello, my name is</p>
-                    <h1>Robert Sutherland,</h1>
-                    <p class="terminaltext">and I am a</p>
+                    <h1 class="terminaltext">Hello, my name is</h1>
+                    <h1 id="name">Robert Sutherland,</h1>
+                    <h2 class="terminaltext">and I am a</h2>
                     <h2>Front End Developer.</h2>
                     <p>I specialize in creating useful and fun user experiences.</p>
-                    <div class="button" >
-                        <a href="https://www.github.com/sutherb" target="_blank" style="transition-delay: 50ms;">Check out my Github!</a>
-                    </div>
+                    <a class="button" href="https://www.github.com/sutherb" target="_blank" style="transition-delay: 50ms;">Check out my Github!</a>
                 </section>
                 <section id="about">
                     <h2>About</h2>
@@ -56,25 +67,33 @@
                     <article>
                         <h3>CIBC</h3>
                         <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                            <li>Recipient of eAchiever’s Excellence award</li>
+                            <li>Rebranding of CIBC, Imperial Service, Private Wealth Management pages</li>
+                            <li>Working with large teams of designers, content editors, legal, project managers</li>
+                            <li>Contributing to Ember-based banking SPA</li>
+                            <li>Coordinating solutions with development team</li>
+                            <li>Driving First Caribbean CIBC website rebuild</li>
+                            <li>Working with software architect to build internal tools for CIBC teams</li>
+                            <li>Documenting processes for dailies development team</li>
+                            <li>Investigating accessibility support, testing with NVDA screen reader</li>
+                            <li>Researching JSON-LD technology for fulfilling SEO requirements</li>
                         </ul>
                     </article>
                     <article>
                         <h3>Rich Media</h3>
                         <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                            <li>Clients include Samsung, TD Canada Trust, Royal Bank, ScotiaBank, Sun Life</li>
+                            <li>Responsible for coding responsive websites, based on graphic artist's designs</li>
+                            <li>Adapting functionality of site to changing feedback provided by clients</li>
+                            <li>Supporting cross-browser compatibility & accessibility requirements WCAG 2.0</li>
                         </ul>
                     </article>
                     <article>
                         <h3>Durham College</h3>
                         <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                            <li>Developed MVC e-Commerce website for a local start-up business</li>
+                            <li>Participated in regular team meetings to ensure correct website functionality</li>
+                            <li>Consulting with stakeholders to capture business solution requirements</li>
                         </ul>
                     </article>
                 </section>
@@ -94,18 +113,16 @@
                     <div></div>
                 </section>
                 <section id="contact">
-                    <h2>Interested?</h2>
-                    <p>Feel free to reach out!</p>
-                    <div class="button" >
-                        <a href="mailto:robertsutherlanddev@gmail.com" target="_blank" style="transition-delay: 50ms;">Let's go!</a>
-                    </div>
+                    <h2>Get in Touch!</h2>
+                    <p>Currently I am looking for interesting work opportunities.</p>
+                    <a class="button" href="mailto:robertsutherlanddev@gmail.com" target="_blank" style="transition-delay: 50ms;">Let's go!</a>
                 </section>
             </div>
         </main>
     </body>
     <footer>
         <div>
-            <p>All projects designed & built by Robert Sutherland</p>
+            <p class="terminaltext">All projects designed & built by Robert Sutherland</p>
         </div>
     </footer>
 </html>
