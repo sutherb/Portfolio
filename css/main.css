@@ -39,19 +39,6 @@ button {
   background: transparent;
 }
 
-/*no good way to blur without adding this class to body using javascript.  came close but initials logo would also cause blur*/
-.blur {
-  overflow: hidden;
-}
-.blur main, .blur nav .logo {
-  transition: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
-  pointer-events: none;
-  user-select: none;
-}
-.blur main {
-  filter: blur(5px) brightness(0.7);
-}
-
 .button {
   display: block;
   padding: 16px;
@@ -140,15 +127,18 @@ h1 {
 h2 {
   color: #8892b0;
   font-size: clamp(30px, 4vw, 60px);
+  font-family: Arial Black;
 }
 
 h3 {
   color: #a8b2d1;
   font-size: 16pt;
+  font-family: Arial;
 }
 
 p {
   line-height: 1.6;
+  font-family: Verdana;
 }
 
 .side {
@@ -223,13 +213,14 @@ p {
 #content #career ul li {
   list-style-type: none;
   padding: 5px 0;
+  font-family: Times New Roman;
 }
-#content #career ul li:after {
+#content #career ul li:before {
   content: "▹";
   position: absolute;
   left: 160px;
   color: #57cbff;
-  line-height: 15px;
+  line-height: 18px;
 }
 #content #contact {
   text-align: center;
@@ -263,25 +254,17 @@ footer div p {
 .mobile-navbar .toggle-menu-button {
   display: block;
   margin: 0 31px;
+  top: 30px;
   right: 0;
   z-index: 2;
   position: fixed;
-  width: 30px;
+  padding: 11px;
+}
+.mobile-navbar .toggle-menu-button div {
+  width: 25px;
   height: 2px;
-  border-radius: 4px;
-  background-color: var(--green);
-  transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
-  transform: rotate(0deg);
-}
-.mobile-navbar .toggle-menu-button:before {
-  width: 120%;
-  top: -10px;
-  opacity: 1;
-}
-.mobile-navbar .toggle-menu-button:after {
-  width: 80%;
-  bottom: -10px;
-  transform: rotate(0deg);
+  background-color: #64ffda;
+  margin: 4px 0;
 }
 .mobile-navbar #mobile-menu-list {
   background-color: #112240;
@@ -300,6 +283,13 @@ footer div p {
 .mobile-navbar #mobile-menu-list .navbutton {
   list-style: none;
 }
+.mobile-navbar #mobile-menu-list .navbutton:hover, .mobile-navbar #mobile-menu-list .navbutton:focus {
+  background-color: rgba(2, 12, 27, 0.7);
+  color: #57cbff;
+  border-color: #57cbff;
+  box-shadow: 0 0 10px #57cbff;
+  border-radius: 2px;
+}
 .mobile-navbar #mobile-menu-list .navbutton:last-child {
   margin-top: 15px;
 }
@@ -310,26 +300,33 @@ footer div p {
 }
 
 @media screen and (max-width: 768px) {
+  #content {
+    margin: 200px 25px 0 25px;
+    padding: 0 20px;
+  }
+  /*no good way to blur without adding this class to body using javascript.  came close but initials logo would also cause blur*/
+  .blur {
+    overflow: hidden;
+  }
+  .blur main, .blur nav .logo, .blur .footer {
+    transition: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+    pointer-events: none;
+    user-select: none;
+  }
+  .blur main, .blur .footer {
+    filter: blur(5px) brightness(0.7);
+  }
   #leftside, #rightside {
     display: none;
+  }
+  nav {
+    padding: 55px 20px;
   }
   nav .navbar {
     display: none;
   }
   nav .mobile-navbar {
     display: block;
-  }
-  nav .mobile-navbar .toggle-menu-button.open {
-    margin: 0 39px;
-  }
-  nav .mobile-navbar .toggle-menu-button.open:before {
-    width: 100%;
-    top: 0px;
-  }
-  nav .mobile-navbar .toggle-menu-button.open:after {
-    width: 100%;
-    bottom: 0px;
-    transform: rotate(-90deg);
   }
   nav .mobile-navbar.menu-open #mobile-menu-list {
     display: block;

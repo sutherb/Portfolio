@@ -50,20 +50,7 @@ button {
 }
 
 
-/*no good way to blur without adding this class to body using javascript.  came close but initials logo would also cause blur*/
-.blur  {
-    overflow: hidden;
-    
-    main, nav .logo {
-        
-        transition: $transition;
-        pointer-events: none;
-        user-select: none;
-    }
-    main {
-        filter: blur(5px) brightness(0.7);
-    }
-}
+
 
 .button {
     display: block;
@@ -175,14 +162,17 @@ h1 {
 h2 {
     color: $slate;
     font-size: clamp(30px, 4vw, 60px);
+    font-family: Arial Black;
 }
 h3 {
     color: $light-slate;
     font-size: 16pt;
+    font-family: Arial;
 }
 
 p {
     line-height: 1.6;
+    font-family: Verdana;
 }
 
 
@@ -278,13 +268,14 @@ p {
         li {
             list-style-type: none;
             padding: 5px 0;
+            font-family: Times New Roman;
     
-            &:after {
+            &:before {
                 content: "▹";
                 position: absolute;
                 left: 160px;
                 color: $blue;
-                line-height: 15px;
+                line-height: 18px;
             }
         }
     }
@@ -337,33 +328,22 @@ footer div {
     .toggle-menu-button {
         display: block;
         margin: 0 31px;
-
-        right: 0;
-
-        
+        top: 30px;
+        right: 0;       
         z-index: 2;
         position: fixed;
+        padding: 11px;
 
-        width: 30px;
-        height: 2px;
-        border-radius: 4px;
-        background-color: var(--green);
-        transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
-        transform: rotate(0deg);
-
-
-        &:before {
-            width: 120%;
-            top: -10px;
-            opacity: 1;
-            
+        div {
+            width: 25px;
+            height: 2px;
+            background-color: $green;
+            margin: 4px 0;
         }
-        &:after{
-            width: 80%;
-            bottom: -10px;
-            transform: rotate(0deg);
-            
-        }
+    
+
+        
+
     }
 
 
@@ -384,6 +364,15 @@ footer div {
             
         .navbutton {
             list-style: none;
+            
+            &:hover, &:focus {
+                background-color: $navy-shadow;
+                color: $blue;
+                border-color: $blue;
+                box-shadow: 0 0 10px $blue;
+                border-radius: 2px;
+            }
+
             &:last-child {
                 margin-top: 15px;
             }
@@ -405,11 +394,36 @@ footer div {
 
 @media screen and (max-width: 768px)  {
 
+    #content {
+        margin: 200px 25px 0 25px;
+        padding: 0 20px;
+    }
+
+    /*no good way to blur without adding this class to body using javascript.  came close but initials logo would also cause blur*/
+    .blur  {
+        overflow: hidden;
+        
+        main, nav .logo, .footer {
+            
+            transition: $transition;
+            pointer-events: none;
+            user-select: none;
+        }
+        main, .footer {
+            filter: blur(5px) brightness(0.7);
+        }
+        
+    }
+
+
+
     #leftside, #rightside {
         display: none;
     }
 
     nav {
+
+        padding: 55px 20px;
 
         .navbar {
             display: none;
@@ -417,28 +431,6 @@ footer div {
 
         .mobile-navbar {
             display: block;
-
-
-            .toggle-menu-button.open {
-                margin: 0 39px;
-                
-
-                &:before {
-
-                    width: 100%;
-                    top: 0px;
-                    
-                    
-                }
-                &:after{
-
-                    width: 100%;
-                    bottom: 0px;
-                    transform: rotate(-90deg);
-                    
-                }
-                
-            }
 
             &.menu-open {
 
