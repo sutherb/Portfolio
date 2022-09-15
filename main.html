@@ -5,33 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Robert Sutherland</title>
         <link rel="icon" href="assets/favicon.png" type="image/png">
-        <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+        <!-- <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'> -->
         <link rel="stylesheet" href="css/main.css">
         <script>0</script>
+        <script src="js/main.js"></script>
     </head>
     <body>
         <nav>
             <div class="logo"><a href="/"><img src="assets/logo3.png"/></a></div>
             <div class="mobile-navbar">
-                <button class="mobile-button" role="button" aria-controls="mobile-menu"></button>
-                <div id="mobile-menu" class="mobile-menu" role="menubar" hidden>
-                    <ul>
+                <button class="button toggle-menu-button" role="button" aria-controls="mobile-menu"></button>
+                <div class="mobile-menu" role="menubar">
+                    <ul id="mobile-menu-list">
                         <li class="navbutton"><a href="#about" role="menuitem">About</a></li>
                         <li class="navbutton"><a href="#career" role="menuitem">Experience</a></li>
                         <li class="navbutton"><a href="#projects" role="menuitem">Projects</a></li>
                         <li class="navbutton"><a href="#contact" role="menuitem">Contact</a></li>
+                        <li class="navbutton"><a class="button" href="RobertSutherland_Developer.pdf" target="_blank" style="transition-delay: 50ms;" role="menuitem">Resume</a></li>
                     </ul>
-                    <a class="button" href="RobertSutherland_Developer.pdf" target="_blank" style="transition-delay: 50ms;" role="menuitem">Resume</a>
                 </div>
             </div>
+            
             <div class="navbar" role="menubar">
                 <ul>
                     <li class="navbutton"><a href="#about" role="menuitem">About</a></li>
                     <li class="navbutton"><a href="#career" role="menuitem">Experience</a></li>
                     <li class="navbutton"><a href="#projects" role="menuitem">Projects</a></li>
                     <li class="navbutton"><a href="#contact" role="menuitem">Contact</a></li>
+                    <li class="navbutton"><a class="button" href="RobertSutherland_Developer.pdf" target="_blank" style="transition-delay: 50ms;" role="menuitem">Resume</a></li>
                 </ul>
-                <a class="button" href="RobertSutherland_Developer.pdf" target="_blank" style="transition-delay: 50ms;" role="menuitem">Resume</a>
+                
             </div>
         </nav>
         <main>
@@ -43,7 +46,7 @@
             <div id="content">
                 <section id="intro">
                     <h1 class="terminaltext">Hello, my name is</h1>
-                    <h1 id="name">Robert Sutherland,</h1>
+                    <h1 id="name">Bert Jones,</h1>
                     <h2 class="terminaltext">and I am a</h2>
                     <h2>Front End Developer.</h2>
                     <p>I specialize in creating useful and fun user experiences.</p>
@@ -105,8 +108,8 @@
                         <a href="http://178.128.237.20:5000/" target="_blank">Coin World!&nbsp;&nbsp;<sup>&#8599;</sup></a>
                     </article>
                     <article>
-                        <h3>CSS Calculator</h3>
-                        <p>Calculator app, no javascript.  All CSS!</p>
+                        <h3>Mr Calculator</h3>
+                        <p>Calculator app, nothing crazy</p>
                         <a href="#"  target="_blank">CSS Calculator App&nbsp;&nbsp;<sup>&#8599;</sup></a>
                     </article>
                     <h3>Check out more of my work at <a href="https://github.com/sutherb" target="_blank">Github <sup>&#8599;</sup></a></h3>

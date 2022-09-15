@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+/*  @import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700); */
 html {
   scroll-behavior: smooth;
 }
@@ -39,6 +39,19 @@ button {
   background: transparent;
 }
 
+/*no good way to blur without adding this class to body using javascript.  came close but initials logo would also cause blur*/
+.blur {
+  overflow: hidden;
+}
+.blur main, .blur nav .logo {
+  transition: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  pointer-events: none;
+  user-select: none;
+}
+.blur main {
+  filter: blur(5px) brightness(0.7);
+}
+
 .button {
   display: block;
   padding: 16px;
@@ -65,6 +78,9 @@ nav {
 }
 nav .logo {
   padding: 0 10px;
+  position: fixed;
+  top: 30px;
+  left: 20px;
 }
 nav .logo a {
   border: 2px solid;
@@ -82,17 +98,23 @@ nav .mobile-navbar {
 }
 nav .navbar {
   display: flex;
+  position: absolute;
+  right: 40px;
 }
 nav .navbar ul {
   display: flex;
   margin-right: 15px;
-  padding-top: 3px;
 }
 nav .navbar ul .navbutton {
+  margin-top: 14px;
   list-style: none;
 }
 nav .navbar ul .navbutton a {
   padding: 10px;
+}
+nav .navbar ul .navbutton:last-child {
+  margin-top: 0;
+  padding-left: 20px;
 }
 nav .navbar .button {
   display: flex;
@@ -172,7 +194,7 @@ p {
 }
 
 #content {
-  margin: 0 50px;
+  margin: 200px 50px 0 50px;
   padding: 0 100px;
 }
 #content section {
@@ -197,6 +219,17 @@ p {
 #content #intro .button {
   margin: 100px 0;
   width: 220px;
+}
+#content #career ul li {
+  list-style-type: none;
+  padding: 5px 0;
+}
+#content #career ul li:after {
+  content: "▹";
+  position: absolute;
+  left: 160px;
+  color: #57cbff;
+  line-height: 15px;
 }
 #content #contact {
   text-align: center;
@@ -227,56 +260,53 @@ footer div p {
 1201px and more —  Extra large screens, TV
 
 */
-.mobile-navbar .mobile-button {
+.mobile-navbar .toggle-menu-button {
   display: block;
-  background: #64ffda;
+  margin: 0 31px;
   right: 0;
-  width: 50px;
-  height: 50px;
-  margin: 0 10px;
   z-index: 2;
   position: fixed;
+  width: 30px;
+  height: 2px;
+  border-radius: 4px;
+  background-color: var(--green);
+  transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+  transform: rotate(0deg);
 }
-.mobile-navbar .mobile-button:before {
-  content: "";
-  display: block;
-  width: 5px;
-  height: 1px;
-  margin: 0px auto;
-  background-color: #a8b2d1;
+.mobile-navbar .toggle-menu-button:before {
+  width: 120%;
+  top: -10px;
+  opacity: 1;
 }
-.mobile-navbar .mobile-button:after {
-  content: "";
-  display: block;
-  width: 5px;
-  height: 1px;
-  margin: 0px auto;
-  background-color: #a8b2d1;
+.mobile-navbar .toggle-menu-button:after {
+  width: 80%;
+  bottom: -10px;
+  transform: rotate(0deg);
 }
-.mobile-navbar .mobile-menu {
+.mobile-navbar #mobile-menu-list {
   background-color: #112240;
   width: 300px;
   display: none;
   z-index: 1;
   position: fixed;
-  padding-top: 100px;
-}
-.mobile-navbar .mobile-menu ul {
+  padding: 100px 50px 30px 50px;
   margin: 0;
-  padding: 0;
+  text-align: center;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
-.mobile-navbar .mobile-menu ul .navbutton {
+.mobile-navbar #mobile-menu-list .navbutton {
   list-style: none;
 }
-.mobile-navbar .mobile-menu ul .navbutton a {
+.mobile-navbar #mobile-menu-list .navbutton:last-child {
+  margin-top: 15px;
+}
+.mobile-navbar #mobile-menu-list .navbutton a {
   display: block;
   margin: auto;
-  width: 200px;
-  padding: 20px 0;
-}
-.mobile-navbar .mobile-menu a {
-  width: 150px;
-  margin: 20px auto;
+  padding: 30px 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -289,27 +319,23 @@ footer div p {
   nav .mobile-navbar {
     display: block;
   }
-  nav .mobile-navbar:focus-within .mobile-button:before {
-    content: "";
-    display: block;
-    width: 5px;
-    height: 1px;
-    margin: 0px auto;
-    background-color: #57cbff;
+  nav .mobile-navbar .toggle-menu-button.open {
+    margin: 0 39px;
   }
-  nav .mobile-navbar:focus-within .mobile-button:after {
-    content: "";
-    display: block;
-    width: 5px;
-    height: 1px;
-    margin: 0px auto;
-    background-color: #57cbff;
+  nav .mobile-navbar .toggle-menu-button.open:before {
+    width: 100%;
+    top: 0px;
   }
-  nav .mobile-navbar:focus-within .mobile-menu {
+  nav .mobile-navbar .toggle-menu-button.open:after {
+    width: 100%;
+    bottom: 0px;
+    transform: rotate(-90deg);
+  }
+  nav .mobile-navbar.menu-open #mobile-menu-list {
     display: block;
-    position: fixed;
-    right: 0;
-    top: 0;
+  }
+  nav .mobile-navbar.menu-open #mobile-menu-list a {
+    display: block;
   }
 }
 
