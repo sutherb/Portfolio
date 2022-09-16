@@ -496,52 +496,8 @@ footer div p {
 1201px and more —  Extra large screens, TV
 
 */
-.mobile-navbar .toggle-menu-button {
-  display: block;
-  margin: 0 31px;
-  top: 30px;
-  right: 0;
-  z-index: 2;
-  position: fixed;
-  padding: 11px;
-}
-.mobile-navbar .toggle-menu-button div {
-  width: 25px;
-  height: 2px;
-  background-color: #64ffda;
-  margin: 4px 0;
-}
 .mobile-navbar #mobile-menu-list {
   display: none;
-  background-color: #112240;
-  width: 200px;
-  z-index: 1;
-  position: fixed;
-  padding: 100px 50px 30px 50px;
-  margin: 0;
-  text-align: center;
-  height: 100%;
-  position: fixed;
-  right: 0;
-  top: 0;
-}
-.mobile-navbar #mobile-menu-list .navbutton {
-  list-style: none;
-}
-.mobile-navbar #mobile-menu-list .navbutton:hover, .mobile-navbar #mobile-menu-list .navbutton:focus {
-  background-color: rgba(2, 12, 27, 0.7);
-  color: #57cbff;
-  border-color: #57cbff;
-  box-shadow: 0 0 10px #57cbff;
-  border-radius: 2px;
-}
-.mobile-navbar #mobile-menu-list .navbutton:last-child {
-  margin-top: 15px;
-}
-.mobile-navbar #mobile-menu-list .navbutton a {
-  display: block;
-  margin: auto;
-  padding: 30px 0;
 }
 
 @media screen and (max-width: 768px) {
